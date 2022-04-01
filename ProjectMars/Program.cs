@@ -34,15 +34,13 @@ namespace ProjectMars
             Thread.Sleep(5000);
             if (helloAsha.Text == "Hi Asha")
             {
-                Console.WriteLine("passed");
+                Console.WriteLine("login passed");
             }
             else
             {
-                Console.WriteLine("failed");
+                Console.WriteLine("login failed");
             }
             //adding languages
-            //select language section
-            IWebElement Language = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
             //clink on add new for adding languages
             IWebElement addNew = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
             addNew.Click();
@@ -58,26 +56,56 @@ namespace ProjectMars
             IWebElement add = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]"));
             add.Click();
             Thread.Sleep(2000);
+            //Check if the data is created or not
+            IWebElement createdData = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
+            if (createdData.Text == "Basic" )
 
+            {
+                Console.WriteLine("Language created successfully");
+            }
+            else
+            {
+                Console.WriteLine("Language not created successfully");
+            }
             //Edting created element
+            //click on edit icon
             IWebElement editButton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[1]"));
             editButton.Click();
-            //updating created language
+            //update inside 'add anguage' text box
             IWebElement addLangupdate= driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[1]/input"));
             addLangupdate.Clear();
             addLangupdate.SendKeys("Hindi");
-            //click the level for updating language
+            //click the level as fluent
              IWebElement chooseLevelupdate = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/div[2]/select/option[4]"));
              chooseLevelupdate.Click();
-            //click on update fluent level 
-            IWebElement fluentUpdate = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
-            fluentUpdate.Click();
+            //click on update 
+            IWebElement updateButton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
+            updateButton.Click();
             Thread.Sleep(2000);
+            //check if created data is updated
+            IWebElement editedData = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[2]"));
+            if (editedData.Text == "Fluent")
+
+            {
+                Console.WriteLine("created language edited successfully");
+            }
+            else
+            {
+                Console.WriteLine("created Language not edited successfully");
+            }
             //Delete created lang
             IWebElement deleteButton = driver.FindElement(By.XPath("//*[@id='account-profile-section']/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
             deleteButton.Click();
 
+            if(editedData.Text=="fluent")
+            {
+                Console.WriteLine("created language not removed-Test failed");
 
+            }
+            else
+            {
+                Console.WriteLine("created language removed successfully");
+            }
         }
     }
 }
