@@ -12,10 +12,9 @@ namespace ProjectMars.Utilities
     internal class Wait
     {
         public static void WaitToBeClickable(IWebDriver driver, String locator, String locatorValue, int seconds)
-        {
-           
+        {   
 
-                var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
+            var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
             if (locator == "XPath")
             {
                 wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(locatorValue)));
@@ -45,7 +44,7 @@ namespace ProjectMars.Utilities
             if (locator == "CssSelector")
             {
                 wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(locatorValue)));
-                wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(locatorValue)));
+                
             }
         }
 

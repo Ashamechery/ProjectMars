@@ -1,29 +1,33 @@
-﻿using System;
-using System.Threading;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿using NUnit.Framework;
+using ProjectMars.Utilities;
 
 namespace ProjectMars.Pages
 {
-    internal class ProfileDetails_Tests
+    [TestFixture]
+    public class ProfileDetails_Tests : CommonDriver
     {
-        static void Main(string[] args)
+        [Test]
+        public void CreateProfileDetails_Test()
+            {
+            //Profile create page object initialization and definition
+            ProfilePage profilePageObj = new ProfilePage();
+            profilePageObj.CreateProfileDetails(driver,"dummy");
+            }
+        [Test]
+        public void EditProfileDetails_Test()
         {
-            //open the chrome browser
-            IWebDriver driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-
-            //Login page object initialization and definition
-            LoginPage loginPageObj = new LoginPage();  
-            loginPageObj.LoginSteps(driver);
-
-            //Profile page object initialization and definition
-            ProfilePage profilePageObj=new ProfilePage();
-            profilePageObj.CreateProfileDetails(driver);
             //edit
-            profilePageObj.EditProfileDetails(driver);
+            ProfilePage profilePageObj = new ProfilePage();
+            profilePageObj.EditProfileDetails(driver,"dummy");
+            }
+        [Test]
+        public void DeleteProfileDetails_Test()
+
+            {
             //delete
-            profilePageObj.DeleteProfileDetails(driver);
-        }
-    }
+            ProfilePage profilePageObj = new ProfilePage();
+             profilePageObj.DeleteProfileDetails(driver);
+
+            }
+       }
 }
