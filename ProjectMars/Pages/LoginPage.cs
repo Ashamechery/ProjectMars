@@ -33,7 +33,7 @@ namespace ProjectMars.Pages
 
                 //identify password and enter valid password
                 IWebElement passwordTextbox = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[2]/input"));
-                passwordTextbox.SendKeys("Keziahshaji@123#");
+                passwordTextbox.SendKeys("123456");
                 Wait.WaitToBeClickable(driver, "XPath", "/html/body/div[2]/div/ div/div[1]/div/div[4]/button", 2);
                 //click on login button
                 IWebElement loginButton = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
