@@ -6,10 +6,10 @@ using ProjectMars.Pages;
 using ProjectMars.Utilities;
 using TechTalk.SpecFlow;
 
-namespace ProjectMars
+namespace ProfileDetails
 {
     [Binding]
-    public class ProfileDetailsStepDefinitions :CommonDriver
+    public class ProfileDetailsStepDefinitions : CommonDriver
     {
         [Given(@"I logged into the Turnup portal successfully")]
         public void GivenILoggedIntoTheTurnupPortalSuccessfully()
@@ -26,7 +26,7 @@ namespace ProjectMars
         {
             //Profile create page object initialization and definition
             ProfilePage profilePageObj = new ProfilePage();
-            profilePageObj.CreateProfileDetails(driver,language);
+            profilePageObj.CreateProfileDetails(driver, language);
         }
 
         [Then(@"then '([^']*)' and level should be saved successfully")]
@@ -43,9 +43,9 @@ namespace ProjectMars
         public void WhenIEditingAndLevelSaveIt(string language)
         {
             ProfilePage profilePageObj = new ProfilePage();
-            profilePageObj.EditProfileDetails(driver,language);
+            profilePageObj.EditProfileDetails(driver, language);
         }
-         
+
         [Then(@"the edited '([^']*)' and level should be saved successfully")]
         public void ThenTheEditedAndLevelShouldBeSavedSuccessfully(string language)
         {

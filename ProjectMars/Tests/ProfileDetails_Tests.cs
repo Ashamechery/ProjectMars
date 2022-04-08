@@ -11,7 +11,7 @@ namespace ProjectMars.Pages
             {
             //Profile create page object initialization and definition
             ProfilePage profilePageObj = new ProfilePage();
-            profilePageObj.CreateProfileDetails(driver,"dummy");
+            profilePageObj.CreateProfileDetails(driver,"dummy3");
             }
         [Test]
         public void EditProfileDetails_Test()
